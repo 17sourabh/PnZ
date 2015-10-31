@@ -36,6 +36,15 @@ Ext.define('PnZ.controller.HomeScreen', {
             },
             "homescreen list#nikonList": {
                 itemtap: 'onListItemTap'
+            },
+            "homescreen list#cannonList": {
+                itemtap: 'onListItemTap'
+            },
+            "homescreen list#accList": {
+                itemtap: 'onListItemTap'
+            },
+            "homescreen list#lightList": {
+                itemtap: 'onListItemTap'
             }
         }
     },
@@ -49,10 +58,17 @@ Ext.define('PnZ.controller.HomeScreen', {
     },
 
     onListItemTap: function(dataview, index, target, record, e, eOpts) {
-        var me = this,
-            list = me.getNikonList();
-
-        me.addItemToCart(record);
+        var me = this,list;
+		var checkbox = e.target.children[0];
+		if(!Ext.isEmpty(checkbox)) {
+			if(checkbox.checked == true) {
+				checkbox.checked = false;
+				me.removeItemFromCart(record);
+			} else {
+				checkbox.checked = true;
+				me.addItemToCart(record);
+			}
+		}
     },
 
     populateListData: function() {
@@ -108,17 +124,18 @@ Ext.define('PnZ.controller.HomeScreen', {
 
 
     },
-
     addItemToCart: function(rec) {
         var me = this,
             store = Ext.getStore('Cart'),
             model = Ext.create('PnZ.model.CameraDetails');
-
-
-
         store.add({'name': rec.get('name'),'specification':rec.get('specification')});
-
-
+    },
+	removeItemFromCart: function(rec) {
+        var me = this,
+            store = Ext.getStore('Cart');
+		var index = store.find('name',rec.data.name);
+		if(index != -1) {
+			store.removeAt(index);
+		}
     }
-
 });
