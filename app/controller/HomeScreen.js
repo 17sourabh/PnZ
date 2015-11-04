@@ -27,7 +27,8 @@ Ext.define('PnZ.controller.HomeScreen', {
             cannonList: 'list#cannonList',
             accList: 'list#accList',
             lightList: 'list#lightList',
-            tabPanel: 'homescreen tabpanel#tabPanel'
+            tabPanel: 'homescreen tabpanel#tabPanel',
+			cartButton: 'homescreen button#cart'
         },
 
         control: {
@@ -45,7 +46,10 @@ Ext.define('PnZ.controller.HomeScreen', {
             },
             "homescreen list#lightList": {
                 itemtap: 'onListItemTap'
-            }
+            },
+			"homescreen button#cart": {
+				tap: 'onCartTap'
+			}
         }
     },
 
@@ -137,5 +141,10 @@ Ext.define('PnZ.controller.HomeScreen', {
 		if(index != -1) {
 			store.removeAt(index);
 		}
-    }
+    },
+	onCartTap: function(button,e,eOpts) {
+		var me = this;
+		var tabPanel = me.getTabPanel();
+		tabPanel.hide();
+	}
 });

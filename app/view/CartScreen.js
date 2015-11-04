@@ -13,9 +13,9 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('PnZ.view.HomeScreen', {
+Ext.define('PnZ.view.CartScreen', {
     extend: 'Ext.Container',
-    alias: 'widget.homescreen',
+    alias: 'widget.cartscreen',
 
     requires: [
         'Ext.Toolbar',
@@ -31,34 +31,6 @@ Ext.define('PnZ.view.HomeScreen', {
         layout: 'fit',
         scrollable: null,
         items: [
-            {
-                xtype: 'toolbar',
-                docked: 'top',
-                layout: {
-                    type: 'hbox',
-                    pack: 'center'
-                },
-                items: [
-                    {
-                        xtype: 'label',
-                        html: 'PnZ',
-                        margin: '0 0 0 20'
-                    },
-                    {
-                        xtype: 'spacer'
-                    },
-                    {
-                        xtype: 'button',
-                        width: 60
-                    },
-                    {
-                        xtype: 'button',
-                        width: 60,
-                        iconCls: 'cart-icon',
-						itemId:'cart'
-                    }
-                ]
-            },
             {
                 xtype: 'tabpanel',
                 itemId: 'tabPanel',
