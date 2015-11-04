@@ -53,14 +53,21 @@ Ext.define('PnZ.controller.HomeScreen', {
         }
     },
 
-    onHomeScreenPainted: function(element, eOpts) {
+    onHomeScreenPainted: function(ele, eOpts) {
         var me = this,
             homeScreen = me.getHomeScreen(),
             tabPanel = me.getTabPanel();
-
+			
+		tabPanel.element.on('swipe',onTabPanelSwipe);
         me.populateListData();
     },
-
+	
+	onTabPanelSwipe: function(a,b,c) {
+		console.log(a);
+		console.log(b);
+		console.log(c);
+	},
+	
     onListItemTap: function(dataview, index, target, record, e, eOpts) {
         var me = this,list;
 		var checkbox = e.target.children[0];
@@ -143,8 +150,11 @@ Ext.define('PnZ.controller.HomeScreen', {
 		}
     },
 	onCartTap: function(button,e,eOpts) {
-		var me = this;
-		var tabPanel = me.getTabPanel();
-		tabPanel.hide();
+		var me = this,
+			homeScreen = me.getHomeScreen(),
+			cartScreen;
+		cartScreen = Ext.create('PnZ.view.CartScreen');
+		homeScreen.removeAll(true);
+		homeScreen.add(cartScreen);
 	}
 });

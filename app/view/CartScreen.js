@@ -32,68 +32,25 @@ Ext.define('PnZ.view.CartScreen', {
         scrollable: null,
         items: [
             {
-                xtype: 'tabpanel',
-                itemId: 'tabPanel',
-                items: [
-                    {
-                        xtype: 'container',
-                        title: 'Nikon',
-                        layout: 'fit',
-                        items: [
-                            {
-                                xtype: 'list',
-                                itemId: 'nikonList',
-                                itemTpl: [
-                                    '<div class=\'camera-details\'>{name}<input type="checkbox" style=\'float: right; margin-right: 10px;\' name=\'\'></div>'
-                                ],
-                                store: 'Nikon'
-                            }
-                        ]
-                    },
-                    {
-                        xtype: 'container',
-                        title: 'Canon',
-                        layout: 'fit',
-                        items: [
-                            {
-                                xtype: 'list',
-                                itemId: 'cannonList',
-                                itemTpl: [
-                                    '<div class=\'camera-details\'>{name}<input type="checkbox" style=\'float: right; margin-right: 10px;\' name=\'\'></div>'
-                                ],
-                                store: 'Canon'
-                            }
-                        ]
-                    },
-                    {
-                        xtype: 'container',
-                        title: 'Acc.',
-                        layout: 'fit',
-                        items: [
-                            {
-                                xtype: 'list',
-                                itemId: 'accList',
-                                itemTpl: [
-                                    '<div class=\'camera-details\'>{name}<input type="checkbox" style=\'float: right; margin-right: 10px;\' name=\'\'></div>'
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        xtype: 'container',
-                        title: 'Lighting',
-                        layout: 'fit',
-                        items: [
-                            {
-                                xtype: 'list',
-                                itemId: 'lightList',
-                                itemTpl: [
-                                    '<div class=\'camera-details\'>{name}<input type="checkbox" style=\'float: right; margin-right: 10px;\' name=\'\'></div>'
-                                ]
-                            }
-                        ]
-                    }
-                ]
+                xtype: 'container',
+				title: 'Cart',
+				layout: 'fit',
+				items: [
+					{
+						xtype: 'list',
+						itemId: 'cartList',
+						itemTpl: [
+							'<div class=camera-details>{name}'+
+							'<select name="cartList" style= "float: right; margin-right: 10px;">'+
+							'<option value="Days">Days</option>'+
+							'<option value="1">1</option>'+
+							'<option value="2">2</option>'+
+							'<option value="3">3</option>'+
+							'</select></div>'
+						],
+						store: 'Cart'
+					}
+				]
             }
         ]
     },
