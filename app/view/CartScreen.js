@@ -59,5 +59,4 @@ Ext.define('PnZ.view.CartScreen', {
         this.callParent();
         this.relayEvents(this,['painted']);
     }
-
 });
