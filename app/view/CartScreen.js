@@ -28,17 +28,18 @@ Ext.define('PnZ.view.CartScreen', {
     ],
 
     config: {
-        layout: 'fit',
+        layout: 'vbox',
         scrollable: null,
         items: [
             {
                 xtype: 'container',
 				title: 'Cart',
-				layout: 'fit',
+				//layout: 'hbox',
 				items: [
 					{
 						xtype: 'list',
 						itemId: 'cartList',
+						height: '200px',
 						itemTpl: [
 							'<div class=camera-details>{name}'+
 							'<select name="cartList" style= "float: right; margin-right: 10px;">'+
@@ -51,7 +52,28 @@ Ext.define('PnZ.view.CartScreen', {
 						store: 'Cart'
 					}
 				]
-            }
+            },
+			{
+				xtype:'container',
+				layout:'hbox',
+				margin : '10 0 0 0',
+				items: [
+					{
+						xtype:'button',
+						text: 'Email',
+						iconCls : 'home',
+						margin : '0 0 0 10'
+					},
+					{
+                        xtype: 'spacer'
+                    },
+					{
+						xtype : 'label',
+						html: 'Total Amount : 100Rs',
+						margin : '0 10 0 0'
+					}
+				]
+			}
         ]
     },
 

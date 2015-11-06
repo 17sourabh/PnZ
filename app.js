@@ -40,7 +40,8 @@ Ext.application({
         'CancelationForm'
     ],
     controllers: [
-        'HomeScreen'
+        'HomeScreen',
+		'CartScreen'
     ],
     name: 'PnZ',
 
